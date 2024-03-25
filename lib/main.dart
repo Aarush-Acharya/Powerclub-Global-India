@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:pcg/views/about_us.dart';
-import 'package:pcg/views/carees.dart';
-import 'package:pcg/views/home_view.dart';
-import 'package:pcg/views/services_page.dart';
-import 'package:pcg/views/team.dart'; // Replace with your actual project name and import path
+import 'pages/home.dart'; 
+import 'pages/about.dart'; 
+import 'pages/services.dart'; 
+import 'pages/contact.dart';
 
 void main() {
-  runApp(MaterialApp(
-    title: 'Powerclub Global',
-    debugShowCheckedModeBanner: false,
-    theme: ThemeData(
-      primarySwatch: Colors.blue,
-    ),
-    routes: {
-      '/': (context) => HomeView(),
-      '/careers': (context) => CareersPage(),
-      '/aboutUs': (context) => MyStatefulWidget(),
-      '/team': (context) => TeamPage(),
-      '/services': (context) => ServicesPage(),
-    },
-    initialRoute: '/', // Load HomeView as the initial route
-  ));
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Powerclub Global',
+      theme: ThemeData(
+      ),
+      home: Home(),
+      routes: {
+        '/aboutUsPage': (context) => AboutUsPage(),
+        '/servicesPage': (context) => ServicesPage(),
+        '/contactUsPage': (context) => ContactUsPage(),
+      },
+    );
+  }
 }
