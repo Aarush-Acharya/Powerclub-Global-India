@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../widgets/appbar.dart'; 
 import '../widgets/footer.dart'; 
+import '../widgets/home_results.dart';
+import '../widgets/home_video.dart';
+import '../widgets/home_insights.dart';
+import '../widgets/home_connect.dart';
+import '../widgets/home_newsletter.dart';
 import 'about.dart'; 
 import 'services.dart'; 
 import 'contact.dart'; 
+
 
 
 class Home extends StatefulWidget {
@@ -121,6 +127,11 @@ class _HomeState extends State<Home> {
                 },
               ),
             ),
+            const ResultsSection(),
+            HomeVideo(videoUrl: 'https://www.youtube.com/watch?v=lE23UzCPsVg'),
+            InsightsSection(),
+            HomeConnect(),
+            HomeNewsletter(),
             Footer(isDarkMode: isDarkMode), 
           ],
         ),
@@ -128,3 +139,7 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+
+
+
