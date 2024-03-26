@@ -13,23 +13,41 @@ class _ServicesPageState extends State<ServicesPage> {
   @override
   Widget build(BuildContext context) {
     isDarkMode = Theme.of(context).brightness == Brightness.dark;
-
+      final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+      void _toggleDarkMode() {
+    setState(() {
+      isDarkMode = !isDarkMode;
+    });
+  }
     return Scaffold(
+      key: _scaffoldKey,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: CustomAppBar(
           isDarkMode: isDarkMode,
-          toggleDarkMode: () {},
-          navigateHome: () => Navigator.of(context).pushNamed('/'),
-          navigateToAboutUs: () => Navigator.pushNamed(context, '/aboutUs'),
-          navigateToServices: () {}, 
-          navigateToContactUs: () => Navigator.pushNamed(context, '/contactUs'),
-          scaffoldKey: GlobalKey<ScaffoldState>(), 
+          toggleDarkMode: _toggleDarkMode,
+          scaffoldKey: _scaffoldKey,
         ),
       ),
-      body: Stack(
-        children: [
-          SingleChildScrollView(
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            ListTile(
+              title: Text('About Us'),
+              onTap: () => Navigator.pushNamed(context, '/aboutUsPage'),
+            ),
+            ListTile(
+              title: Text('Services'),
+              onTap: () => Navigator.pushNamed(context, '/servicesPage'),
+            ),
+            ListTile(
+              title: Text('Contact Us'),
+              onTap: () => Navigator.pushNamed(context, '/contactUsPage'),
+            ),
+          ],
+        ),
+      ),
+      body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -85,12 +103,6 @@ class _ServicesPageState extends State<ServicesPage> {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Footer(isDarkMode: isDarkMode),
-          ),
-        ],
-      ),
     );
   }
 

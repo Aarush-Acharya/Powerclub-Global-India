@@ -3,20 +3,12 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isDarkMode;
   final VoidCallback toggleDarkMode;
-  final VoidCallback navigateHome;
-  final VoidCallback navigateToAboutUs;
-  final VoidCallback navigateToServices;
-  final VoidCallback navigateToContactUs;
   final GlobalKey<ScaffoldState> scaffoldKey;
 
   const CustomAppBar({
     Key? key,
     required this.isDarkMode,
     required this.toggleDarkMode,
-    required this.navigateHome,
-    required this.navigateToAboutUs,
-    required this.navigateToServices,
-    required this.navigateToContactUs,
     required this.scaffoldKey,
   }) : super(key: key);
 
@@ -38,17 +30,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ? Row(
               children: [
                 GestureDetector(
-                  onTap: navigateHome,
+                  onTap: ()=> Navigator.of(context).pushNamed('/') ,
                   child: Image.asset('assets/pcg${isDarkMode ? "_b" : ""}.png', height: 40.0),
                 ),
                 SizedBox(width: 20),
-                TextButton(onPressed: navigateToAboutUs, child: Text("About Us", style: TextStyle(color: isDarkMode ? Colors.white : Colors.black))),
-                TextButton(onPressed: navigateToServices, child: Text("Services", style: TextStyle(color: isDarkMode ? Colors.white : Colors.black))),
-                TextButton(onPressed: navigateToContactUs, child: Text("Contact Us", style: TextStyle(color: isDarkMode ? Colors.white : Colors.black))),
+                TextButton(onPressed: ()=> Navigator.pushNamed(context, '/aboutUsPage'), child: Text("About Us", style: TextStyle(color: isDarkMode ? Colors.white : Colors.black))),
+                TextButton(onPressed: ()=> Navigator.pushNamed(context, '/servicesPage'), child: Text("Services", style: TextStyle(color: isDarkMode ? Colors.white : Colors.black))),
+                TextButton(onPressed: () => Navigator.pushNamed(context, '/contactUsPage'), child: Text("Contact Us", style: TextStyle(color: isDarkMode ? Colors.white : Colors.black))),
               ],
             )
           : GestureDetector(
-              onTap: navigateHome,
+              onTap: ()=>Navigator.of(context).pushNamed('/'),
               child: Center(child: Image.asset('assets/pcg${isDarkMode ? "_b" : ""}.png', height: 40.0)),
             ),
       actions: [

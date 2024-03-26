@@ -31,22 +31,43 @@ class ContactUsPage extends StatelessWidget {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
     return Scaffold(
-      backgroundColor: isDarkMode ? Colors.black : Colors.white,
-      appBar: CustomAppBar(
-        isDarkMode: isDarkMode,
-        toggleDarkMode: _toggleDarkMode,
-        navigateHome: _navigateHome,
-        navigateToAboutUs: _navigateToAboutUs,
-        navigateToServices: _navigateToServices,
-        navigateToContactUs: _navigateToContactUs,
-        scaffoldKey: _scaffoldKey,
+      key: _scaffoldKey,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
+        child: CustomAppBar(
+          isDarkMode: isDarkMode,
+          toggleDarkMode: _toggleDarkMode,
+          scaffoldKey: _scaffoldKey,
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            ListTile(
+              title: Text('About Us'),
+              onTap: () => Navigator.pushNamed(context, '/aboutUsPage'),
+            ),
+            ListTile(
+              title: Text('Services'),
+              onTap: () => Navigator.pushNamed(context, '/servicesPage'),
+            ),
+            ListTile(
+              title: Text('Contact Us'),
+              onTap: () => Navigator.pushNamed(context, '/contactUsPage'),
+            ),
+          ],
+        ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const ContactForm(),
-            Footer(isDarkMode: isDarkMode),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ContactForm(),
+              Footer(isDarkMode: isDarkMode)
+            ],
+          ),
         ),
       ),
     );

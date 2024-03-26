@@ -67,10 +67,6 @@ class _HomeState extends State<Home> {
         child: CustomAppBar(
           isDarkMode: isDarkMode,
           toggleDarkMode: _toggleDarkMode,
-          navigateHome: _navigateHome,
-          navigateToAboutUs: () => Navigator.pushNamed(context, '/aboutUsPage'),
-          navigateToServices: () => Navigator.pushNamed(context, '/servicesPage'),
-          navigateToContactUs: () => Navigator.pushNamed(context, '/contactUsPage'),
           scaffoldKey: _scaffoldKey,
         ),
       ),
