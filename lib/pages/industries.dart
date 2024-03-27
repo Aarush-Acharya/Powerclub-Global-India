@@ -4,7 +4,7 @@ import 'package:pcg/widgets/drawer.dart';
 import '../widgets/appbar.dart';
 import '../widgets/footer.dart';
 
-class ServicesPage extends StatelessWidget {
+class IndustriesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -24,56 +24,74 @@ class ServicesPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Our Services',
+                'Industries',
                 style: Theme.of(context).textTheme.headline4,
               ),
               SizedBox(height: 20),
               Text(
-                'We offer a wide range of services to help you achieve your goals:',
+                'We support a wide range of industries to build the next economy:',
                 style: Theme.of(context).textTheme.bodyText1,
               ),
               SizedBox(height: 10),
               _buildServiceItem(
                 context,
-                'Branding',
-                'Building your brand identity and strategy.',
-                Icons.brush,
+                'Energy',
+                'Innovative solutions for sustainable and renewable energy sources.',
+                Icons.flash_on,
               ),
               _buildServiceItem(
                 context,
-                'Web Development',
-                'Custom websites and web applications tailored to your needs.',
-                Icons.web,
+                'Agriculture',
+                'Technologies and strategies for modern, sustainable agriculture.',
+                Icons.eco,
               ),
               _buildServiceItem(
                 context,
-                'Social Media',
-                'Engaging your audience through powerful social media strategies.',
-                Icons.share,
+                'Development',
+                'Comprehensive land development and urban planning.',
+                Icons.landscape,
               ),
               _buildServiceItem(
                 context,
-                'Experiences',
-                'Creating unforgettable experiences and events.',
-                Icons.event_available,
+                'Transportation',
+                'Efficient and sustainable transportation solutions.',
+                Icons.directions_car,
               ),
               _buildServiceItem(
                 context,
-                'Marketing',
-                'Comprehensive marketing services to grow your visibility.',
-                Icons.trending_up,
+                'Networking',
+                'Advanced networking solutions for ISPs and digital infrastructure.',
+                Icons.router,
               ),
               _buildServiceItem(
                 context,
-                'Press',
-                'Managing press relations and communications.',
-                Icons.record_voice_over,
+                'Space',
+                'Pioneering the final frontier with innovative space technologies.',
+                Icons.rocket_launch,
+              ),
+              _buildServiceItem(
+                context,
+                'Robotics',
+                'Cutting-edge robotics for automation, efficiency, and exploration.',
+                Icons.build,
+              ),
+              _buildServiceItem(
+                context,
+                'Blockchain',
+                'Secure, decentralized technologies for transactions and contracts.',
+                Icons.account_balance_wallet,
+              ),
+              _buildServiceItem(
+                context,
+                'Hardware',
+                'The latest in computer and IoT device technologies.',
+                Icons.computer,
               ),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: Footer (),
+      bottomNavigationBar: Footer(),
     );
   }
 

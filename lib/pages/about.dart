@@ -61,6 +61,7 @@ class AboutUsPage extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: Footer (),
     );
   }
 }

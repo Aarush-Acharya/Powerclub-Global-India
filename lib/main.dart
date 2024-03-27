@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:pcg/theme/theme.dart';
 import 'package:pcg/theme/theme_manager.dart';
 import 'pages/home.dart';
-import 'pages/about.dart';
+import 'pages/industries.dart';
 import 'pages/services.dart';
+import 'pages/insights.dart';
+import 'pages/about.dart';
 import 'pages/contact.dart';
+import 'pages/careers.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -24,9 +28,12 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           routes: {
             '/': (context) => Home(),
-            '/aboutUsPage': (context) => AboutUsPage(),
+            '/industriesPage': (context) => IndustriesPage(),
             '/servicesPage': (context) => ServicesPage(),
+            '/insightsPage': (context) => InsightsPage(),
+            '/aboutUsPage': (context) => AboutUsPage(),
             '/contactUsPage': (context) => ContactUsPage(),
+            '/careersPage': (context) => CareersPage(),
           },
         );
       },
