@@ -7,6 +7,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      surfaceTintColor: Colors.transparent,
       backgroundColor: themeManager.isDarkMode ? Colors.black : Colors.white,
       child: ListView(
         children: [
