@@ -1,52 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:pcg/widgets/drawer.dart';
 import '../widgets/appbar.dart';
 import '../widgets/footer.dart';
 
-class AboutUsPage extends StatefulWidget {
-  @override
-  _AboutUsPageState createState() => _AboutUsPageState();
-}
-
-class _AboutUsPageState extends State<AboutUsPage> {
-  bool isDarkMode = false;
+class AboutUsPage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  AboutUsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    void _toggleDarkMode() {
-      setState(() {
-        isDarkMode = !isDarkMode;
-      });
-    }
-
     return Scaffold(
       key: _scaffoldKey,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: CustomAppBar(
-          isDarkMode: isDarkMode,
-          toggleDarkMode: _toggleDarkMode,
           scaffoldKey: _scaffoldKey,
         ),
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            ListTile(
-              title: Text('About Us'),
-              onTap: () => Navigator.pushNamed(context, '/aboutUsPage'),
-            ),
-            ListTile(
-              title: Text('Services'),
-              onTap: () => Navigator.pushNamed(context, '/servicesPage'),
-            ),
-            ListTile(
-              title: Text('Contact Us'),
-              onTap: () => Navigator.pushNamed(context, '/contactUsPage'),
-            ),
-          ],
-        ),
-      ),
+      drawer: CustomDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),

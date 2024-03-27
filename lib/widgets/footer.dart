@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:pcg/theme/theme_manager.dart';
 
 class Footer extends StatelessWidget {
-  final bool isDarkMode;
 
-  const Footer({Key? key, required this.isDarkMode}) : super(key: key);
+  const Footer({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Color overlineColor = isDarkMode ? Colors.white : Color(0xFFB4914C);
+    Color overlineColor = themeManager.isDarkMode ? Colors.white : Color(0xFFB4914C);
 
-    String imageSuffix = isDarkMode ? "_b" : "";
+    String imageSuffix = themeManager.isDarkMode ? "_b" : "";
 
     return Material(
       elevation: 5,
-      color: isDarkMode ? Colors.black : Colors.white,
+      color: themeManager.isDarkMode ? Colors.black : Colors.white,
       child: Column(
         mainAxisSize: MainAxisSize.min, 
         children: [
@@ -54,7 +54,7 @@ class Footer extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 10.0,
                   fontFamily: 'Cinzel',
-                  color: isDarkMode ? Colors.white : Colors.black,
+                  color: themeManager.isDarkMode ? Colors.white : Colors.black,
                 ),
               ),
             ),

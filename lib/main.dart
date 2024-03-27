@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'pages/home.dart'; 
-import 'pages/about.dart'; 
-import 'pages/services.dart'; 
+import 'package:pcg/theme/theme.dart';
+import 'package:pcg/theme/theme_manager.dart';
+import 'pages/home.dart';
+import 'pages/about.dart';
+import 'pages/services.dart';
 import 'pages/contact.dart';
 
 void main() {
@@ -11,15 +13,21 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Powerclub Global',
-      theme: ThemeData(
-      ),
-      home: Home(),
-      routes: {
-        '/aboutUsPage': (context) => AboutUsPage(),
-        '/servicesPage': (context) => ServicesPage(),
-        '/contactUsPage': (context) => ContactUsPage(),
+    return ListenableBuilder(
+      listenable: themeManager,
+      builder: (BuildContext context, Widget? child) {
+        return MaterialApp(
+          title: 'Powerclub Global',
+          theme: MyAppThemes.lightTheme,
+          darkTheme: MyAppThemes.darkTheme,
+          themeMode: themeManager.themeMode,
+          routes: {
+            '/': (context) => Home(),
+            '/aboutUsPage': (context) => AboutUsPage(),
+            '/servicesPage': (context) => ServicesPage(),
+            '/contactUsPage': (context) => ContactUsPage(),
+          },
+        );
       },
     );
   }
