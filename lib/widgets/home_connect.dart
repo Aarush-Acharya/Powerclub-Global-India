@@ -17,19 +17,22 @@ class HomeConnect extends StatelessWidget {
                 Expanded(
                   child: OptionCard(
                     title: "What can we help you Achieve?",
-                    buttonText: "Let's Get to Work!",
+                    buttonText: "    Let's Get to Work!    ",
                     onPressed: () {
-                      // Action for the first button
+                      Navigator.pushNamed(context, '/contactUsPage'); // Route to Contact page
                     },
                   ),
                 ),
-                const SizedBox(width: 16),
+                Container(
+                  height: 100,
+                  child: VerticalDivider(color: Colors.white, width: 2),
+                ),
                 Expanded(
                   child: OptionCard(
                     title: "Where Powerclub Global can take you?",
-                    buttonText: "Come and See!",
+                    buttonText: "    Come and See!    ",
                     onPressed: () {
-                      // Action for the second button
+                      Navigator.pushNamed(context, '/careersPage'); // Route to Careers page
                     },
                   ),
                 ),
@@ -39,17 +42,19 @@ class HomeConnect extends StatelessWidget {
               children: [
                 OptionCard(
                   title: "What can we help you Achieve?",
-                  buttonText: "Let's Get to Work!",
+                  buttonText: "    Let's Get to Work!    ",
                   onPressed: () {
-                    // Action for the first button
+                    Navigator.pushNamed(context, '/contactUsPage'); // Route to Contact page
                   },
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
+                Divider(color: Colors.white, height: 2),
+                SizedBox(height: 16),
                 OptionCard(
                   title: "Where Powerclub Global can take you?",
-                  buttonText: "Come and See!",
+                  buttonText: "    Come and See!    ",
                   onPressed: () {
-                    // Action for the second button
+                    Navigator.pushNamed(context, '/careersPage'); // Route to Careers page
                   },
                 ),
               ],
@@ -84,12 +89,14 @@ class OptionCard extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 8),
-        ElevatedButton(
+        const SizedBox(height: 16),
+        OutlinedButton(
           onPressed: onPressed,
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.white, // Background color
-            foregroundColor: const Color(0xFFB4914C), // Text color
+          style: OutlinedButton.styleFrom(
+            side: BorderSide(color: Colors.white),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+            foregroundColor: Colors.white,
+            padding: EdgeInsets.symmetric(vertical: 20),
           ),
           child: Text(buttonText),
         ),
