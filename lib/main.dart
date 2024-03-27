@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
           theme: MyAppThemes.lightTheme,
           darkTheme: MyAppThemes.darkTheme,
           themeMode: themeManager.themeMode,
+          debugShowCheckedModeBanner: false,
           routes: {
             '/': (context) => Home(),
             '/aboutUsPage': (context) => AboutUsPage(),
