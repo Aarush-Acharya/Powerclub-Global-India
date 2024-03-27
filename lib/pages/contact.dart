@@ -27,11 +27,11 @@ class ContactUsPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               ContactForm(),
-              Footer()
             ],
           ),
         ),
       ),
+      bottomNavigationBar: Footer (),
     );
   }
 }

@@ -28,7 +28,7 @@ class InsightsPage extends StatelessWidget {
             children: [
               SizedBox(height: 60),
               Text(
-                'Insights',
+                'Industry Insights',
                 style: TextStyle(
                   fontFamily: 'Cinzel',
                   fontWeight: FontWeight.bold,

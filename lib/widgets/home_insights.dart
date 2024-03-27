@@ -38,7 +38,7 @@ class InsightsSection extends StatelessWidget {
   onPressed: () {
     // Define what happens when the button is pressed
     // For example, navigate to a page showing client results
-    Navigator.of(context).pushNamed('/insights'); // Adjust the route as needed
+    Navigator.of(context).pushNamed('/insightsPage'); // Adjust the route as needed
   },
   style: ElevatedButton.styleFrom(
     backgroundColor: Color(0xFFB4914C), // Background color of the button
