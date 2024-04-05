@@ -8,7 +8,7 @@ import 'pages/insights.dart';
 import 'pages/about.dart';
 import 'pages/contact.dart';
 import 'pages/careers.dart';
-
+import 'pages/bodhi.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
             '/aboutUsPage': (context) => AboutUsPage(),
             '/contactUsPage': (context) => ContactUsPage(),
             '/careersPage': (context) => CareersPage(),
+            '/bodhiPage': (context) => Bodhi(),
           },
         );
       },
