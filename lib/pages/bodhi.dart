@@ -29,6 +29,7 @@ class Bodhi extends StatelessWidget {
               LinkTreeWidget(
                 assetPath: 'bodhi.png',
                 name: 'Jessy Bodhi Artman',
+                contact: 'bodhi@powerclubglobal.com',
                 links: [
                   LinkButton(
                       title: 'Website', url: 'https://www.powerclubglobal.com'),
