@@ -33,7 +33,9 @@ class Bodhi extends StatelessWidget {
                 links: [
                   LinkButton(
                       title: 'Website', url: 'https://www.powerclubglobal.com'),
-                  LinkButton(title: 'LinkedIn', url: 'https://linkedin.com'),
+                  LinkButton(
+                      title: 'LinkedIn',
+                      url: 'https://www.linkedin.com/in/jessy-artman-740b9a94'),
                   LinkButton(
                       title: 'Instagram',
                       url: 'https://www.instagram.com/jessyartman/'),

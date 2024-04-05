@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         ),
         body: const Center(
           child: LinkTreeWidget(
-            assetPath: 'assets/images/bodhi.png',
+            assetPath: 'bodhi.png',
             name: 'Jessy Bodhi Artman',
             contact: 'bodhi@powerclubglobal.com',
             links: [
