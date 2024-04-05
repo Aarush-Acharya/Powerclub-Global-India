@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pcg/widgets/drawer.dart';
 import 'package:pcg/widgets/linktree.dart';
-import '../widgets/contact_form.dart';
 import '../widgets/appbar.dart';
 import '../widgets/footer.dart';
 
@@ -28,15 +27,24 @@ class Bodhi extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               LinkTreeWidget(
-                assetPath: 'assets/images/bodhi.jpg',
+                assetPath: 'bodhi.png',
                 name: 'Jessy Bodhi Artman',
-                links: [],
+                links: [
+                  LinkButton(
+                      title: 'Website', url: 'https://www.powerclubglobal.com'),
+                  LinkButton(title: 'LinkedIn', url: 'https://linkedin.com'),
+                  LinkButton(
+                      title: 'Instagram',
+                      url: 'https://www.instagram.com/jessyartman/'),
+                  LinkButton(
+                      title: 'X', url: 'https://twitter.com/JessyArtman'),
+                ],
               ),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: Footer(),
+      bottomNavigationBar: const Footer(),
     );
   }
 }
