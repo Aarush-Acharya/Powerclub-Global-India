@@ -95,13 +95,22 @@ class LinkButton extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0), // Space between buttons
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor:
-              isDarkMode ? Colors.white : Color(0xFFDCB62A), // Background color
-          foregroundColor:
-              isDarkMode ? Colors.black : Colors.white, // Text color
+      child: OutlinedButton(
+        style: OutlinedButton.styleFrom(
+          side: BorderSide(
+            color:
+                isDarkMode ? Colors.white : Color(0xFFDCB62A), // Border color
+            width: 2.0, // Border width
+          ),
+          foregroundColor: isDarkMode
+              ? Colors.white
+              : Colors.black, // Adjusted text color for light mode
           minimumSize: const Size(double.infinity, 50),
+          padding: const EdgeInsets.symmetric(vertical: 16.0), // Adjust padding
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+                30.0), // Increased border radius for rounded corners
+          ),
         ),
         onPressed: () => _launchURL(url),
         child: Text(title),
