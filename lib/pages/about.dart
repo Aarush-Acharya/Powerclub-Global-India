@@ -19,9 +19,9 @@ class AboutUsPage extends StatelessWidget {
         ),
       ),
       drawer: CustomDrawer(),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -38,7 +38,7 @@ class AboutUsPage extends StatelessWidget {
               ),
               SizedBox(height: 40),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                padding: EdgeInsets.symmetric(horizontal: 30.0),
                 child: Text(
                   'At the heart of our mission lies a singular commitment: to build a brighter tomorrow, today. '
                   'As a forward-thinking global consultancy, we unite with the worlds pioneering changemakers to craft the future. '
@@ -57,11 +57,11 @@ class AboutUsPage extends StatelessWidget {
                   textAlign: TextAlign.center, // For better readability
                 ),
               ),
+              Footer(),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: Footer (),
     );
   }
 }

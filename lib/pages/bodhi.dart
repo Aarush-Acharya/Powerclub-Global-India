@@ -43,11 +43,11 @@ class Bodhi extends StatelessWidget {
                       title: 'X', url: 'https://twitter.com/JessyArtman'),
                 ],
               ),
+              Footer(),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: const Footer(),
     );
   }
 }

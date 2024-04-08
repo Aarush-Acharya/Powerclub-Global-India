@@ -69,11 +69,11 @@ class ServicesPage extends StatelessWidget {
                 'Managing press relations and communications.',
                 Icons.record_voice_over,
               ),
+              const Footer(),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: Footer (),
     );
   }
 

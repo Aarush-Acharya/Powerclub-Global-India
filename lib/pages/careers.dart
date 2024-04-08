@@ -50,13 +50,15 @@ class CareersPage extends StatelessWidget {
             SizedBox(height: 10),
             Text(job["description"]),
             SizedBox(height: 10),
-            Text("Skills Required:", style: Theme.of(context).textTheme.subtitle1),
-            Wrap(children: job["skills"].map<Widget>((skill) => Chip(label: Text(skill))).toList()),
+            Text("Skills Required:",
+                style: Theme.of(context).textTheme.subtitle1),
+            Wrap(
+                children: job["skills"]
+                    .map<Widget>((skill) => Chip(label: Text(skill)))
+                    .toList()),
           ],
         ),
       ),
     );
   }
 }
-
-

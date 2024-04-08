@@ -8,7 +8,8 @@ class InsightsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>(); // For drawer
+    final GlobalKey<ScaffoldState> _scaffoldKey =
+        GlobalKey<ScaffoldState>(); // For drawer
 
     return Scaffold(
       key: _scaffoldKey,
@@ -20,9 +21,9 @@ class InsightsPage extends StatelessWidget {
         ),
       ),
       drawer: CustomDrawer(), // Assuming you have a CustomDrawer widget
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -30,10 +31,9 @@ class InsightsPage extends StatelessWidget {
               Text(
                 'Industry Insights',
                 style: TextStyle(
-                  fontFamily: 'Cinzel',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30
-                ),
+                    fontFamily: 'Cinzel',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 40),
@@ -44,12 +44,11 @@ class InsightsPage extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              // Add more content as needed
+              Footer(),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: Footer(), // Your Footer widget
     );
   }
 }
