@@ -3,44 +3,62 @@ import '../widgets/appbar.dart';
 import '../widgets/footer.dart';
 import '../widgets/drawer.dart';
 
-class ServicesPage extends StatelessWidget {
+class IndustriesPage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final List<Map<String, dynamic>> services = [
+  final List<Map<String, dynamic>> industries = [
     {
-      "title": "Branding",
-      "description": "Building your brand identity and strategy.",
-      "icon": Icons.brush,
-    },
-    {
-      "title": "Web Development",
+      "title": "Energy",
       "description":
-          "Custom websites and web applications tailored to your needs.",
-      "icon": Icons.web,
+          "Innovative solutions for sustainable and renewable energy sources.",
+      "icon": Icons.flash_on,
     },
     {
-      "title": "Social Media",
+      "title": "Agriculture",
       "description":
-          "Engaging your audience through powerful social media strategies.",
-      "icon": Icons.share,
+          "Technologies and strategies for modern, sustainable agriculture.",
+      "icon": Icons.eco,
     },
     {
-      "title": "Experiences",
-      "description": "Creating unforgettable experiences and events.",
-      "icon": Icons.event_available,
+      "title": "Development",
+      "description": "Comprehensive land development and urban planning.",
+      "icon": Icons.landscape,
     },
     {
-      "title": "Marketing",
+      "title": "Transportation",
       "description":
-          "Comprehensive marketing services to grow your visibility.",
-      "icon": Icons.trending_up,
+          "Efficient and sustainable transportation solutions for Air, Land, and Sea.",
+      "icon": Icons.directions_car,
     },
     {
-      "title": "Press",
-      "description": "Managing press relations and communications.",
-      "icon": Icons.record_voice_over,
+      "title": "Networking",
+      "description":
+          "Advanced networking solutions for ISPs and digital infrastructure.",
+      "icon": Icons.router,
     },
-    // Add more services as needed
+    {
+      "title": "Space",
+      "description":
+          "Pioneering the final frontier with innovative space technologies.",
+      "icon": Icons.rocket_launch,
+    },
+    {
+      "title": "Robotics",
+      "description":
+          "Cutting-edge robotics for automation, efficiency, and exploration.",
+      "icon": Icons.build,
+    },
+    {
+      "title": "Blockchain",
+      "description":
+          "Secure, decentralized technologies for transactions and contracts.",
+      "icon": Icons.account_balance_wallet,
+    },
+    {
+      "title": "Hardware",
+      "description": "The latest in computer and IoT device technologies.",
+      "icon": Icons.computer,
+    },
   ];
 
   @override
@@ -64,10 +82,11 @@ class ServicesPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center, // Align text center
+            crossAxisAlignment: CrossAxisAlignment
+                .center, // Center alignment for heading and paragraph
             children: [
               Text(
-                'Our Services',
+                'Industries',
                 style: Theme.of(context)
                     .textTheme
                     .headline4
@@ -76,7 +95,7 @@ class ServicesPage extends StatelessWidget {
               ),
               SizedBox(height: 16),
               Text(
-                'We offer a wide range of services to help you achieve your goals:',
+                'We support a wide range of industries to build the next economy:',
                 style: Theme.of(context).textTheme.bodyText1,
                 textAlign: TextAlign.center,
               ),
@@ -90,7 +109,7 @@ class ServicesPage extends StatelessWidget {
                   mainAxisSpacing: 10,
                   childAspectRatio: 3,
                 ),
-                itemCount: services.length,
+                itemCount: industries.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
                     decoration: BoxDecoration(
@@ -101,11 +120,12 @@ class ServicesPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: ListTile(
-                      leading: Icon(services[index]["icon"], color: themeColor),
-                      title: Text(services[index]["title"],
+                      leading:
+                          Icon(industries[index]["icon"], color: themeColor),
+                      title: Text(industries[index]["title"],
                           style: TextStyle(
                               fontWeight: FontWeight.bold, color: textColor)),
-                      subtitle: Text(services[index]["description"],
+                      subtitle: Text(industries[index]["description"],
                           style: TextStyle(color: textColor)),
                     ),
                   );

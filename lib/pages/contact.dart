@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pcg/widgets/drawer.dart';
 import '../widgets/contact_form.dart';
-import '../widgets/appbar.dart'; 
-import '../widgets/footer.dart'; 
+import '../widgets/appbar.dart';
+import '../widgets/footer.dart';
 
 class ContactUsPage extends StatelessWidget {
   const ContactUsPage({Key? key}) : super(key: key);
@@ -18,15 +18,15 @@ class ContactUsPage extends StatelessWidget {
           scaffoldKey: _scaffoldKey,
         ),
       ),
-          drawer: CustomDrawer(),
-      body: SingleChildScrollView(
+      drawer: CustomDrawer(),
+      body: const SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               ContactForm(),
-              Footer()
+              Footer(),
             ],
           ),
         ),

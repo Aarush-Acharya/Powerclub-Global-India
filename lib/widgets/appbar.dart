@@ -38,8 +38,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 SizedBox(width: 20),
                 TextButton(
                     onPressed: () =>
-                        Navigator.pushNamed(context, '/aboutUsPage'),
-                    child: Text("About Us",
+                        Navigator.pushNamed(context, '/industriesPage'),
+                    child: Text("Industries",
                         style: TextStyle(
                             color: themeManager.isDarkMode
                                 ? Colors.white
@@ -54,8 +54,32 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                                 : Colors.black))),
                 TextButton(
                     onPressed: () =>
+                        Navigator.pushNamed(context, '/insightsPage'),
+                    child: Text("Insights",
+                        style: TextStyle(
+                            color: themeManager.isDarkMode
+                                ? Colors.white
+                                : Colors.black))),
+                TextButton(
+                    onPressed: () =>
+                        Navigator.pushNamed(context, '/aboutUsPage'),
+                    child: Text("About Us",
+                        style: TextStyle(
+                            color: themeManager.isDarkMode
+                                ? Colors.white
+                                : Colors.black))),
+                TextButton(
+                    onPressed: () =>
                         Navigator.pushNamed(context, '/contactUsPage'),
                     child: Text("Contact Us",
+                        style: TextStyle(
+                            color: themeManager.isDarkMode
+                                ? Colors.white
+                                : Colors.black))),
+                TextButton(
+                    onPressed: () =>
+                        Navigator.pushNamed(context, '/careersPage'),
+                    child: Text("Careers",
                         style: TextStyle(
                             color: themeManager.isDarkMode
                                 ? Colors.white

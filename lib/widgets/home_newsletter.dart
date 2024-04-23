@@ -20,22 +20,28 @@ class _HomeNewsletterState extends State<HomeNewsletter> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final screenWidth = MediaQuery.of(context).size.width;
+    // Define additional padding for desktop view
+    final isDesktop = screenWidth > 800;
+    final horizontalPadding = isDesktop ? screenWidth * 0.2 : 24.0; // For example, use 20% of screen width as padding for desktop
+
     return Container(
-      color: const Color(0xFFB4914C),
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+      color: isDarkMode ? Colors.black : Colors.white,
+      padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: 16),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center, // Adjust alignment
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             "Subscribe to Powerclub Global Insights",
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
-            textAlign: TextAlign.center, // Center align the text
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: isDarkMode ? Colors.white : Colors.black),
+            textAlign: TextAlign.center,
           ),
           SizedBox(height: 8),
           Text(
             "Our monthly look into the critical challenges facing global businesses.",
-            style: TextStyle(fontSize: 16, color: Colors.white),
-            textAlign: TextAlign.center, // Center align the text
+            style: TextStyle(fontSize: 16, color: isDarkMode ? Colors.white : Colors.black),
+            textAlign: TextAlign.center,
           ),
           SizedBox(height: 16),
           Row(
@@ -45,23 +51,25 @@ class _HomeNewsletterState extends State<HomeNewsletter> {
                   controller: _emailController,
                   decoration: InputDecoration(
                     hintText: 'Enter your email',
-                    fillColor: Colors.white,
+                    fillColor: isDarkMode ? Colors.grey[800] : Colors.white,
                     filled: true,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide.none,
                     ),
                   ),
+                  style: TextStyle(color: isDarkMode ? Colors.white : Colors.black),
                 ),
               ),
               SizedBox(width: 16),
-              ElevatedButton(
+              OutlinedButton(
                 onPressed: _submit,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white, // Button color
-                  foregroundColor: Color(0xFFB4914C), // Text color
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(color: isDarkMode ? Colors.white : Colors.black),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+                  foregroundColor: isDarkMode ? Colors.white : Colors.black,
                 ),
-                child: Text('Submit'),
+                child: Text('   Submit   '),
               ),
             ],
           ),
