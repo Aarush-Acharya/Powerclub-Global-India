@@ -60,62 +60,73 @@ class ServicesPage extends StatelessWidget {
         child: CustomAppBar(scaffoldKey: _scaffoldKey),
       ),
       drawer: CustomDrawer(),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center, // Align text center
-            children: [
-              Text(
-                'Our Services',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4
-                    ?.copyWith(fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 16),
-              Text(
-                'We offer a wide range of services to help you achieve your goals:',
-                style: Theme.of(context).textTheme.bodyText1,
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 16),
-              GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: isDesktop ? 3 : 1,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: 3,
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment:
+                      CrossAxisAlignment.center, // Align text center
+                  children: [
+                    Text(
+                      'Our Services',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline4
+                          ?.copyWith(fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      'We offer a wide range of services to help you achieve your goals:',
+                      style: Theme.of(context).textTheme.bodyText1,
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 16),
+                    GridView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: isDesktop ? 3 : 1,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 10,
+                        childAspectRatio: 3,
+                      ),
+                      itemCount: services.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.black
+                                    : Colors.white,
+                            border: Border.all(color: themeColor),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: ListTile(
+                            leading: Icon(services[index]["icon"],
+                                color: themeColor),
+                            title: Text(services[index]["title"],
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: textColor)),
+                            subtitle: Text(services[index]["description"],
+                                style: TextStyle(color: textColor)),
+                          ),
+                        );
+                      },
+                    ),
+                    SizedBox(height: 40),
+                    // Place Footer here directly in the layout
+                  ],
                 ),
-                itemCount: services.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).brightness == Brightness.dark
-                          ? Colors.black
-                          : Colors.white,
-                      border: Border.all(color: themeColor),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: ListTile(
-                      leading: Icon(services[index]["icon"], color: themeColor),
-                      title: Text(services[index]["title"],
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, color: textColor)),
-                      subtitle: Text(services[index]["description"],
-                          style: TextStyle(color: textColor)),
-                    ),
-                  );
-                },
               ),
-              SizedBox(height: 40),
-              Footer(), // Place Footer here directly in the layout
-            ],
+            ),
           ),
-        ),
+          Footer(),
+        ],
       ),
     );
   }

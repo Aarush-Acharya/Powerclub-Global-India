@@ -20,33 +20,36 @@ class Bodhi extends StatelessWidget {
         ),
       ),
       drawer: CustomDrawer(),
-      body: const SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              LinkTreeWidget(
-                assetPath: 'bodhi.png',
-                name: 'Jessy Bodhi Artman',
-                contact: 'bodhi@powerclubglobal.com',
-                links: [
-                  LinkButton(
-                      title: 'Website', url: 'https://www.powerclubglobal.com'),
-                  LinkButton(
-                      title: 'LinkedIn',
-                      url: 'https://www.linkedin.com/in/jessy-artman-740b9a94'),
-                  LinkButton(
-                      title: 'Instagram',
-                      url: 'https://www.instagram.com/jessyartman/'),
-                  LinkButton(
-                      title: 'X', url: 'https://twitter.com/JessyArtman'),
-                ],
+      body: Column(
+        children: [
+          Expanded(
+            child: const SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: LinkTreeWidget(
+                  assetPath: 'bodhi.png',
+                  name: 'Jessy Bodhi Artman',
+                  contact: 'bodhi@powerclubglobal.com',
+                  links: [
+                    LinkButton(
+                        title: 'Website',
+                        url: 'https://www.powerclubglobal.com'),
+                    LinkButton(
+                        title: 'LinkedIn',
+                        url:
+                            'https://www.linkedin.com/in/jessy-artman-740b9a94'),
+                    LinkButton(
+                        title: 'Instagram',
+                        url: 'https://www.instagram.com/jessyartman/'),
+                    LinkButton(
+                        title: 'X', url: 'https://twitter.com/JessyArtman'),
+                  ],
+                ),
               ),
-              Footer(),
-            ],
+            ),
           ),
-        ),
+          Footer(),
+        ],
       ),
     );
   }

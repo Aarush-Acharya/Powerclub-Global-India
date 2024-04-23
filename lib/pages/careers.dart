@@ -29,12 +29,22 @@ class CareersPage extends StatelessWidget {
         ),
       ),
       drawer: CustomDrawer(), // Assuming CustomDrawer is correctly implemented
-      body: SingleChildScrollView(
-        child: Column(
-          children: jobList.map((job) => buildJobCard(context, job)).toList(),
-        ),
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children:
+                    jobList.map((job) => buildJobCard(context, job)).toList(),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Footer()
+        ],
       ),
-      bottomNavigationBar: Footer(), // Assuming Footer is correctly implemented
     );
   }
 
@@ -54,8 +64,12 @@ class CareersPage extends StatelessWidget {
                 style: Theme.of(context).textTheme.subtitle1),
             Wrap(
                 children: job["skills"]
-                    .map<Widget>((skill) => Chip(label: Text(skill)))
+                    .map<Widget>((skill) => Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Chip(label: Text(skill)),
+                        ))
                     .toList()),
+            
           ],
         ),
       ),

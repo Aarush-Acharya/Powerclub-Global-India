@@ -40,13 +40,10 @@ class ContactFormState extends State<ContactForm> {
 
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: isDesktop ? 120.0 : 20.0,
-        vertical: 20.0,
-      ),
+          vertical: 20.0, horizontal: isDesktop ? 120 : 16),
       child: Form(
         key: _formKey,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             const Text(
               'Contact Powerclub Global',
@@ -66,7 +63,11 @@ class ContactFormState extends State<ContactForm> {
               'Inquiry Type',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
+            SizedBox(
+              height: 20,
+            ),
             DropdownButtonFormField(
+              isExpanded: true,
               decoration: const InputDecoration(labelText: 'Inquiry Type'),
               value: inquiryType.isNotEmpty ? inquiryType : null,
               onChanged: (String? newValue) {
@@ -83,11 +84,12 @@ class ContactFormState extends State<ContactForm> {
               validator: (value) =>
                   value == null ? 'Please select an inquiry type' : null,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
             const Text(
               'Contact Information',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
+            const SizedBox(height: 20),
             TextFormField(
               decoration: const InputDecoration(labelText: 'First Name'),
               validator: (value) => value == null || value.isEmpty
@@ -95,6 +97,7 @@ class ContactFormState extends State<ContactForm> {
                   : null,
               onSaved: (value) => firstName = value ?? '',
             ),
+            const SizedBox(height: 10),
             TextFormField(
               decoration: const InputDecoration(labelText: 'Last Name'),
               validator: (value) => value == null || value.isEmpty
@@ -102,6 +105,7 @@ class ContactFormState extends State<ContactForm> {
                   : null,
               onSaved: (value) => lastName = value ?? '',
             ),
+            const SizedBox(height: 10),
             TextFormField(
               decoration: const InputDecoration(labelText: 'Email'),
               validator: (value) => value == null || !value.contains('@')
@@ -109,6 +113,7 @@ class ContactFormState extends State<ContactForm> {
                   : null,
               onSaved: (value) => email = value ?? '',
             ),
+            const SizedBox(height: 10),
             TextFormField(
               decoration: const InputDecoration(labelText: 'Phone Number'),
               validator: (value) => value == null || value.isEmpty
@@ -116,11 +121,12 @@ class ContactFormState extends State<ContactForm> {
                   : null,
               onSaved: (value) => phoneNumber = value ?? '',
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
             const Text(
               'Business Information',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
+            const SizedBox(height: 20),
             TextFormField(
               decoration: const InputDecoration(labelText: 'Business Name'),
               validator: (value) => value == null || value.isEmpty
@@ -128,6 +134,7 @@ class ContactFormState extends State<ContactForm> {
                   : null,
               onSaved: (value) => businessName = value ?? '',
             ),
+            const SizedBox(height: 10),
             TextFormField(
               decoration: const InputDecoration(labelText: 'Message'),
               maxLines: 4,

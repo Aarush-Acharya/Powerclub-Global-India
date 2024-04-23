@@ -20,15 +20,11 @@ class ContactUsPage extends StatelessWidget {
       ),
       drawer: CustomDrawer(),
       body: const SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              ContactForm(),
-              Footer(),
-            ],
-          ),
+        child: Column(
+          children: [
+            ContactForm(),
+            Footer(),
+          ],
         ),
       ),
     );

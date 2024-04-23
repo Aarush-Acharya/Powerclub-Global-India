@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pcg/change_notifiers/video_notifier.dart';
 import 'package:pcg/theme/theme_manager.dart';
 import 'package:pcg/widgets/drawer.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:appinio_video_player/appinio_video_player.dart';
 import '../widgets/appbar.dart';
 import '../widgets/footer.dart';
 import '../widgets/home_results.dart';
@@ -9,6 +11,8 @@ import '../widgets/home_video.dart';
 import '../widgets/home_insights.dart';
 import '../widgets/home_connect.dart';
 import '../widgets/home_newsletter.dart';
+
+
 
 class Home extends StatelessWidget {
   final PageController _pageController =
@@ -74,11 +78,28 @@ class Home extends StatelessWidget {
               ),
             ),
             const ResultsSection(),
-            const HomeVideo(
-                videoUrl: 'https://www.youtube.com/watch?v=lE23UzCPsVg'),
+            SizedBox(
+              height: 30,
+            ),
+            HomeVideo(
+              videoUrl: 'https://www.youtube.com/watch?v=lE23UzCPsVg',
+              videoNotifier: videoNotifier,
+            ),
+            SizedBox(
+              height: 40,
+            ),
             InsightsSection(),
+            SizedBox(
+              height: 20,
+            ),
             HomeConnect(),
+            SizedBox(
+              height: 20,
+            ),
             HomeNewsletter(),
+            SizedBox(
+              height: 30,
+            ),
             Footer(),
           ],
         ),
