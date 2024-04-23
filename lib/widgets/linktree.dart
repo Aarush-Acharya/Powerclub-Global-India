@@ -1,37 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.light(), // Define light theme
-      darkTheme: ThemeData.dark(), // Define dark theme
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Chief Visionary Officer'),
-          centerTitle: true,
-        ),
-        body: const Center(
-          child: LinkTreeWidget(
-            assetPath: 'bodhi.png',
-            name: 'Jessy Bodhi Artman',
-            contact: 'bodhi@powerclubglobal.com',
-            links: [
-              LinkButton(title: 'Website', url: 'https://www.example.com'),
-              LinkButton(title: 'GitHub', url: 'https://github.com'),
-              LinkButton(title: 'LinkedIn', url: 'https://linkedin.com'),
-              // Add more links as needed
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 class LinkTreeWidget extends StatelessWidget {
   final String assetPath;
   final String name;
@@ -82,11 +51,13 @@ class LinkTreeWidget extends StatelessWidget {
 class LinkButton extends StatelessWidget {
   final String title;
   final String url;
+  final bool isDownload;
 
   const LinkButton({
     Key? key,
     required this.title,
     required this.url,
+    required this.isDownload,
   }) : super(key: key);
 
   @override
@@ -97,14 +68,18 @@ class LinkButton extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 8.0), // Space between buttons
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
-          side: BorderSide(
-            color:
-                isDarkMode ? Colors.white : Color(0xFFDCB62A), // Border color
-            width: 2.0, // Border width
-          ),
+          side: isDownload
+              ? BorderSide(
+                  color: isDarkMode
+                      ? Colors.white
+                      : Color(0xFFDCB62A), // Border color
+                  width: 2.0, // Border width
+                )
+              : null,
           foregroundColor: isDarkMode
               ? Colors.white
               : Colors.black, // Adjusted text color for light mode
+          backgroundColor: isDownload ? Color.fromARGB(255, 255, 201, 8) : null,
           minimumSize: const Size(double.infinity, 50),
           padding: const EdgeInsets.symmetric(vertical: 16.0), // Adjust padding
           shape: RoundedRectangleBorder(
