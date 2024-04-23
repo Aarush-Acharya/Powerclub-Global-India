@@ -80,6 +80,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 : themeManager.changeTheme(ThemeMode.light);
           },
         ),
+        SizedBox(
+          width: 20,
+        ),
       ],
       centerTitle: !isWideScreen,
       bottom: PreferredSize(
