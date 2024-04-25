@@ -34,7 +34,7 @@ class BlogBox extends StatelessWidget {
                 child: Ink(
                     height: 400,
                     width: 600,
-                    color: Colors.grey[300],
+                    color: Colors.white,
                     child: Image.network(
                       image,
                       fit: BoxFit.contain,
