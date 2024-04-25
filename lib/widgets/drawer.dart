@@ -15,23 +15,23 @@ class CustomDrawer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Center(
               child: Image.asset(
                 'assets/pcg${isDarkMode ? "_b" : ""}.png',
                 height: 150,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             _drawerItem(context, 'Industries', '/industriesPage'),
             _drawerItem(context, 'Services', '/servicesPage'),
             _drawerItem(context, 'Insights', '/insightsPage'),
             _drawerItem(context, 'About', '/aboutUsPage'),
             _drawerItem(context, 'Careers', '/careersPage'),
             _drawerItem(context, 'Contact', '/contactUsPage'),
-            Spacer(), // Use Spacer to push everything up
+            const Spacer(), // Use Spacer to push everything up
             Divider(
-              color: isDarkMode ? Colors.white : Color(0xFFB4914C), // Responsive underline color
+              color: isDarkMode ? Colors.white : const Color(0xFFB4914C), // Responsive underline color
               thickness: 2,
             ),
           ],

@@ -1,53 +1,74 @@
 import 'package:flutter/material.dart';
 
 class BlogBox extends StatelessWidget {
-  const BlogBox({Key? key}) : super(key: key);
+  final String image;
+  final String title;
+  final String content;
+  final String tag;
+  final String description;
+  const BlogBox(
+      {Key? key,
+      required this.image,
+      required this.content,
+      required this.description,
+      required this.tag,
+      required this.title})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 600,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          FittedBox(
-            fit: BoxFit.contain,
-            child: Container(
-              height: 400,
-              width: 600,
-              color: Colors.grey[300],
-              child: Center(
-                child: Text('Blog Post'),
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, '/blogs',
+            arguments: {'image': image, 'title': title, 'content': content});
+      },
+      child: Ink(
+        width: 600,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              FittedBox(
+                fit: BoxFit.contain,
+                child: Ink(
+                  height: 400,
+                  width: 600,
+                  color: Colors.grey[300],
+                  child: const Center(
+                    child: Text('Blog Post'),
+                  ),
+                ),
               ),
-            ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                tag,
+                style: const TextStyle(fontSize: 14, color: Colors.amber),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 25,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                description,
+                softWrap: true,
+                style: const TextStyle(
+                  fontSize: 18,
+                ),
+              )
+            ],
           ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            "Industry Tag",
-            style: TextStyle(fontSize: 14, color: Colors.amber),
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          Text(
-            "Sample Title",
-            style: TextStyle(
-              fontSize: 25,
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            "This is a brief description written longer to test how it acts if its long",
-            softWrap: true,
-            style: TextStyle(
-              fontSize: 18,
-            ),
-          )
-        ],
+        ),
       ),
     );
   }

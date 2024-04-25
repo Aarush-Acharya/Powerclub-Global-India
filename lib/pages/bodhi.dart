@@ -9,21 +9,21 @@ class Bodhi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
     return Scaffold(
-      key: _scaffoldKey,
+      key: scaffoldKey,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: CustomAppBar(
-          scaffoldKey: _scaffoldKey,
+          scaffoldKey: scaffoldKey,
         ),
       ),
-      drawer: CustomDrawer(),
-      body: Column(
+      drawer: const CustomDrawer(),
+      body: const Column(
         children: [
           Expanded(
-            child: const SingleChildScrollView(
+            child: SingleChildScrollView(
               child: Padding(
                 padding: EdgeInsets.all(16.0),
                 child: LinkTreeWidget(

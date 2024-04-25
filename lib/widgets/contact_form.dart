@@ -51,7 +51,7 @@ class ContactFormState extends State<ContactForm> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
-            Text(
+            const Text(
               'Please Note that Due to a Large Volume of Inquiries we cannot Respond to Every Request. Thank you for Understanding.',
               style: TextStyle(
                 fontSize: 14,
@@ -63,7 +63,7 @@ class ContactFormState extends State<ContactForm> {
               'Inquiry Type',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             DropdownButtonFormField(
@@ -148,7 +148,7 @@ class ContactFormState extends State<ContactForm> {
               onPressed: _submitForm,
               style: ElevatedButton.styleFrom(
                 backgroundColor:
-                    Color(0xFFDCB62A), // Corrected background color
+                    const Color(0xFFDCB62A), // Corrected background color
                 foregroundColor: Colors.white, // Text color
               ),
               child: const Text('Submit'),

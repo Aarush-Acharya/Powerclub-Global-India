@@ -18,8 +18,8 @@ class AboutUsPage extends StatelessWidget {
           scaffoldKey: _scaffoldKey,
         ),
       ),
-      drawer: CustomDrawer(),
-      body: Column(
+      drawer: const CustomDrawer(),
+      body: const Column(
         children: [
           Expanded(
             child: SingleChildScrollView(

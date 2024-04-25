@@ -28,7 +28,7 @@ class CareersPage extends StatelessWidget {
           // Assuming CustomAppBar handles navigation and appearance based on the current theme
         ),
       ),
-      drawer: CustomDrawer(), // Assuming CustomDrawer is correctly implemented
+      drawer: const CustomDrawer(), // Assuming CustomDrawer is correctly implemented
       body: Column(
         children: [
           Expanded(
@@ -39,10 +39,10 @@ class CareersPage extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Footer()
+          const Footer()
         ],
       ),
     );
@@ -50,18 +50,18 @@ class CareersPage extends StatelessWidget {
 
   Widget buildJobCard(BuildContext context, Map<String, dynamic> job) {
     return Card(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child: Padding(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(job["title"], style: Theme.of(context).textTheme.headline6),
-            SizedBox(height: 10),
+            Text(job["title"], style: Theme.of(context).textTheme.titleLarge),
+            const SizedBox(height: 10),
             Text(job["description"]),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text("Skills Required:",
-                style: Theme.of(context).textTheme.subtitle1),
+                style: Theme.of(context).textTheme.titleMedium),
             Wrap(
                 children: job["skills"]
                     .map<Widget>((skill) => Padding(

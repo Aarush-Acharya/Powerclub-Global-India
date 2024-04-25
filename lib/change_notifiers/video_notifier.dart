@@ -5,12 +5,30 @@ VideoNotifier videoNotifier = VideoNotifier();
 var videoPlayerController =
     CachedVideoPlayerController.asset("assets/pcg-video.mp4");
 
+late CustomVideoPlayerController customVideoPlayerController;
 
 class VideoNotifier extends ChangeNotifier {
   bool isVideoInitialised = false;
 
-  videoIsInitialised() {
-    isVideoInitialised = true;
+  videoIsInitialised(bool value) {
+    isVideoInitialised = value;
     notifyListeners();
+  }
+
+  initialiseVideoController(BuildContext context) async {
+    print("starting initialisation");
+    await videoPlayerController.initialize();
+    print("video initialised");
+    videoPlayerController.pause();
+    customVideoPlayerController = CustomVideoPlayerController(
+        context: context,
+        videoPlayerController: videoPlayerController,
+        customVideoPlayerSettings: const CustomVideoPlayerSettings(
+            showDurationPlayed: false,
+            showDurationRemaining: false,
+            settingsButtonAvailable: false,
+            playbackSpeedButtonAvailable: false));
+    customVideoPlayerController.videoPlayerController.setVolume(0.7);
+    videoNotifier.videoIsInitialised(true);
   }
 }

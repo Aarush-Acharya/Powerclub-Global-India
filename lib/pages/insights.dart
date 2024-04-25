@@ -8,20 +8,20 @@ class InsightsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> _scaffoldKey =
+    final GlobalKey<ScaffoldState> scaffoldKey =
         GlobalKey<ScaffoldState>(); // For drawer
 
     return Scaffold(
-      key: _scaffoldKey,
+      key: scaffoldKey,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: CustomAppBar(
-          scaffoldKey: _scaffoldKey,
+          scaffoldKey: scaffoldKey,
           // Add other required arguments for CustomAppBar here
         ),
       ),
-      drawer: CustomDrawer(), // Assuming you have a CustomDrawer widget
-      body: Column(
+      drawer: const CustomDrawer(), // Assuming you have a CustomDrawer widget
+      body: const Column(
         children: [
           Expanded(
             child: SingleChildScrollView(

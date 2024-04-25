@@ -9,16 +9,16 @@ class ContactUsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
-      key: _scaffoldKey,
+      key: scaffoldKey,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: CustomAppBar(
-          scaffoldKey: _scaffoldKey,
+          scaffoldKey: scaffoldKey,
         ),
       ),
-      drawer: CustomDrawer(),
+      drawer: const CustomDrawer(),
       body: const SingleChildScrollView(
         child: Column(
           children: [

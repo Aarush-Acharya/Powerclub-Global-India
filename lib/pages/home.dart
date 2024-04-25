@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pcg/change_notifiers/video_notifier.dart';
 import 'package:pcg/theme/theme_manager.dart';
 import 'package:pcg/widgets/drawer.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:appinio_video_player/appinio_video_player.dart';
 import '../widgets/appbar.dart';
 import '../widgets/footer.dart';
 import '../widgets/home_results.dart';
@@ -12,13 +10,13 @@ import '../widgets/home_insights.dart';
 import '../widgets/home_connect.dart';
 import '../widgets/home_newsletter.dart';
 
-
-
 class Home extends StatelessWidget {
   final PageController _pageController =
       PageController(initialPage: 500, viewportFraction: .33);
   double currentPageValue = 500.0;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  Home({super.key});
 
   Future<void> _openWebsiteInWebView(String url) async {
     if (await canLaunch(url)) {
@@ -38,11 +36,11 @@ class Home extends StatelessWidget {
           scaffoldKey: _scaffoldKey,
         ),
       ),
-      drawer: CustomDrawer(),
+      drawer: const CustomDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: 500,
               child: Image.asset(
                   'assets/hero_image${themeManager.isDarkMode ? "_b" : ""}.png',
@@ -78,29 +76,28 @@ class Home extends StatelessWidget {
               ),
             ),
             const ResultsSection(),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            HomeVideo(
+            const HomeVideo(
               videoUrl: 'https://www.youtube.com/watch?v=lE23UzCPsVg',
-              videoNotifier: videoNotifier,
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
-            InsightsSection(),
-            SizedBox(
+            const InsightsSection(),
+            const SizedBox(
               height: 20,
             ),
-            HomeConnect(),
-            SizedBox(
+            const HomeConnect(),
+            const SizedBox(
               height: 20,
             ),
-            HomeNewsletter(),
-            SizedBox(
+            const HomeNewsletter(),
+            const SizedBox(
               height: 30,
             ),
-            Footer(),
+            const Footer(),
           ],
         ),
       ),

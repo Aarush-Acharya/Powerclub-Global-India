@@ -23,7 +23,7 @@ class HomeConnect extends StatelessWidget {
                     },
                   ),
                 ),
-                Container(
+                const SizedBox(
                   height: 100,
                   child: VerticalDivider(color: Colors.white, width: 2),
                 ),
@@ -47,9 +47,9 @@ class HomeConnect extends StatelessWidget {
                     Navigator.pushNamed(context, '/contactUsPage'); // Route to Contact page
                   },
                 ),
-                SizedBox(height: 16),
-                Divider(color: Colors.white, height: 2),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
+                const Divider(color: Colors.white, height: 2),
+                const SizedBox(height: 16),
                 OptionCard(
                   title: "Where Powerclub Global can take you?",
                   buttonText: "    Come and See!    ",
@@ -93,10 +93,10 @@ class OptionCard extends StatelessWidget {
         OutlinedButton(
           onPressed: onPressed,
           style: OutlinedButton.styleFrom(
-            side: BorderSide(color: Colors.white),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+            side: const BorderSide(color: Colors.white),
+            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
             foregroundColor: Colors.white,
-            padding: EdgeInsets.symmetric(vertical: 20),
+            padding: const EdgeInsets.symmetric(vertical: 20),
           ),
           child: Text(buttonText),
         ),

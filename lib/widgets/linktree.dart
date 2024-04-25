@@ -24,15 +24,15 @@ class LinkTreeWidget extends StatelessWidget {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(height: 20), // Added padding above the image
+            const SizedBox(height: 20), // Added padding above the image
             CircleAvatar(
               backgroundImage: AssetImage(assetPath),
               radius: 60.0,
             ),
             const SizedBox(height: 20),
-            Text(name, style: Theme.of(context).textTheme.headline5),
-            SizedBox(height: 8), // Padding above the contact field
-            Text(contact, style: Theme.of(context).textTheme.subtitle1),
+            Text(name, style: Theme.of(context).textTheme.headlineSmall),
+            const SizedBox(height: 8), // Padding above the contact field
+            Text(contact, style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 20),
             ...links.map((link) => Container(
                   width: isDesktop
@@ -72,14 +72,14 @@ class LinkButton extends StatelessWidget {
               ? BorderSide(
                   color: isDarkMode
                       ? Colors.white
-                      : Color(0xFFDCB62A), // Border color
+                      : const Color(0xFFDCB62A), // Border color
                   width: 2.0, // Border width
                 )
               : null,
           foregroundColor: isDarkMode
               ? Colors.white
               : Colors.black, // Adjusted text color for light mode
-          backgroundColor: isDownload ? Color.fromARGB(255, 255, 201, 8) : null,
+          backgroundColor: isDownload ? const Color.fromARGB(255, 255, 201, 8) : null,
           minimumSize: const Size(double.infinity, 50),
           padding: const EdgeInsets.symmetric(vertical: 16.0), // Adjust padding
           shape: RoundedRectangleBorder(

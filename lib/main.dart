@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pcg/pages/blog_page.dart';
 import 'package:pcg/theme/theme.dart';
 import 'package:pcg/theme/theme_manager.dart';
 import 'pages/home.dart';
@@ -11,10 +12,12 @@ import 'pages/careers.dart';
 import 'pages/bodhi.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
@@ -30,11 +33,12 @@ class MyApp extends StatelessWidget {
             '/': (context) => Home(),
             '/industriesPage': (context) => IndustriesPage(),
             '/servicesPage': (context) => ServicesPage(),
-            '/insightsPage': (context) => InsightsPage(),
+            '/insightsPage': (context) => const InsightsPage(),
             '/aboutUsPage': (context) => AboutUsPage(),
-            '/contactUsPage': (context) => ContactUsPage(),
+            '/contactUsPage': (context) => const ContactUsPage(),
             '/careersPage': (context) => CareersPage(),
-            '/bodhiPage': (context) => Bodhi(),
+            '/bodhiPage': (context) => const Bodhi(),
+            '/blogs': (context) => const BlogPage()
           },
         );
       },

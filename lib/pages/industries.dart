@@ -61,12 +61,14 @@ class IndustriesPage extends StatelessWidget {
     },
   ];
 
+  IndustriesPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     bool isDesktop = MediaQuery.of(context).size.width >= 800;
     final themeColor = Theme.of(context).brightness == Brightness.dark
         ? Colors.white
-        : Color(0xFFB4914C);
+        : const Color(0xFFB4914C);
     final textColor = Theme.of(context).brightness == Brightness.dark
         ? Colors.white
         : Colors.black;
@@ -77,7 +79,7 @@ class IndustriesPage extends StatelessWidget {
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: CustomAppBar(scaffoldKey: _scaffoldKey),
       ),
-      drawer: CustomDrawer(),
+      drawer: const CustomDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -91,20 +93,20 @@ class IndustriesPage extends StatelessWidget {
                     'Industries',
                     style: Theme.of(context)
                         .textTheme
-                        .headline4
+                        .headlineMedium
                         ?.copyWith(fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Text(
                     'We support a wide range of industries to build the next economy:',
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   GridView.builder(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: isDesktop ? 3 : 1,
                       crossAxisSpacing: 10,
@@ -134,11 +136,11 @@ class IndustriesPage extends StatelessWidget {
                       );
                     },
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                 ],
               ),
             ),
-            Footer(), //
+            const Footer(), //
           ],
         ),
       ),
