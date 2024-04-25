@@ -80,69 +80,77 @@ class IndustriesPage extends StatelessWidget {
         child: CustomAppBar(scaffoldKey: _scaffoldKey),
       ),
       drawer: const CustomDrawer(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment
-                    .center, // Center alignment for heading and paragraph
                 children: [
-                  Text(
-                    'Industries',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineMedium
-                        ?.copyWith(fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    'We support a wide range of industries to build the next economy:',
-                    style: Theme.of(context).textTheme.bodyLarge,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 16),
-                  GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: isDesktop ? 3 : 1,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      childAspectRatio: 3,
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment
+                          .center, // Center alignment for heading and paragraph
+                      children: [
+                        Text(
+                          'Industries',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineMedium
+                              ?.copyWith(fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          'We support a wide range of industries to build the next economy:',
+                          style: Theme.of(context).textTheme.bodyLarge,
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 16),
+                        GridView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: isDesktop ? 3 : 1,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
+                            childAspectRatio: 3,
+                          ),
+                          itemCount: industries.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).brightness ==
+                                        Brightness.dark
+                                    ? Colors.black
+                                    : Colors.white,
+                                border: Border.all(color: themeColor),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: ListTile(
+                                leading: Icon(industries[index]["icon"],
+                                    color: themeColor),
+                                title: Text(industries[index]["title"],
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: textColor)),
+                                subtitle: Text(industries[index]["description"],
+                                    style: TextStyle(color: textColor)),
+                              ),
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 40),
+                      ],
                     ),
-                    itemCount: industries.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).brightness == Brightness.dark
-                              ? Colors.black
-                              : Colors.white,
-                          border: Border.all(color: themeColor),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: ListTile(
-                          leading: Icon(industries[index]["icon"],
-                              color: themeColor),
-                          title: Text(industries[index]["title"],
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: textColor)),
-                          subtitle: Text(industries[index]["description"],
-                              style: TextStyle(color: textColor)),
-                        ),
-                      );
-                    },
-                  ),
-                  const SizedBox(height: 40),
+                  ), //
                 ],
               ),
             ),
-            const Footer(), //
-          ],
-        ),
+          ),
+          const Footer(),
+        ],
       ),
     );
   }

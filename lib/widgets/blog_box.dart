@@ -23,7 +23,7 @@ class BlogBox extends StatelessWidget {
             arguments: {'image': image, 'title': title, 'content': content});
       },
       child: Ink(
-        width: 600,
+        width: 0.4166666667 * MediaQuery.sizeOf(context).width,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -32,8 +32,8 @@ class BlogBox extends StatelessWidget {
               FittedBox(
                 fit: BoxFit.contain,
                 child: Ink(
-                    height: 400,
-                    width: 600,
+                    height: 0.4872107186 * MediaQuery.sizeOf(context).height,
+                    width: 0.4166666667 * MediaQuery.sizeOf(context).width,
                     color: Colors.white,
                     child: Image.network(
                       image,
@@ -46,12 +46,14 @@ class BlogBox extends StatelessWidget {
               Text(
                 tag,
                 style: const TextStyle(fontSize: 14, color: Colors.amber),
+                softWrap: true,
               ),
               const SizedBox(
                 height: 5,
               ),
               Text(
                 title,
+                softWrap: true,
                 style: const TextStyle(
                   fontSize: 25,
                 ),
