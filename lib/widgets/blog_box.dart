@@ -32,13 +32,13 @@ class BlogBox extends StatelessWidget {
               FittedBox(
                 fit: BoxFit.contain,
                 child: Ink(
-                  height: 400,
-                  width: 600,
-                  color: Colors.grey[300],
-                  child: const Center(
-                    child: Text('Blog Post'),
-                  ),
-                ),
+                    height: 400,
+                    width: 600,
+                    color: Colors.grey[300],
+                    child: Image.network(
+                      image,
+                      fit: BoxFit.contain,
+                    )),
               ),
               const SizedBox(
                 height: 10,

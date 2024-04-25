@@ -102,7 +102,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   themeManager.isDarkMode ? Icons.wb_sunny : Icons.brightness_2,
                   color: themeManager.isDarkMode ? Colors.white : Colors.black),
               onPressed: () async {
-                print("changing theme");
                 themeManager.themeMode == ThemeMode.light
                     ? themeManager.changeTheme(ThemeMode.dark)
                     : themeManager.changeTheme(ThemeMode.light);

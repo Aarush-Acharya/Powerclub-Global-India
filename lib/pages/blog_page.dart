@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:pcg/widgets/appbar.dart';
 import 'package:pcg/widgets/drawer.dart';
 import 'package:pcg/widgets/footer.dart';
@@ -36,14 +37,17 @@ class BlogPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset(
-                          image,
-                          fit: BoxFit.fitWidth,
-                          width: 1440,
+                        Container(
+                          height: 400,
+                          child: Image.network(
+                            image,
+                            fit: BoxFit.contain,
+                            width: 1440,
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 15),
+                              horizontal: 150.0, vertical: 15),
                           child: Text(
                             title,
                             softWrap: true,
@@ -56,15 +60,9 @@ class BlogPage extends StatelessWidget {
                           height: 40,
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Text(
-                            content,
-                            softWrap: true,
-                            style: const TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 150),
+                            child: MarkdownBody(data: content)),
                         const SizedBox(
                           height: 40,
                         ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pcg/appwrite.dart';
+import 'package:pcg/change_notifiers/blog_notifier.dart';
 import 'package:pcg/pages/blog_page.dart';
 import 'package:pcg/theme/theme.dart';
 import 'package:pcg/theme/theme_manager.dart';
@@ -12,6 +14,8 @@ import 'pages/careers.dart';
 import 'pages/bodhi.dart';
 
 void main() {
+  appwrite.initialiseAppwrite();
+  blogNotifier.fetchBlogs();
   runApp(const MyApp());
 }
 

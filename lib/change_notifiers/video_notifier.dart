@@ -16,9 +16,7 @@ class VideoNotifier extends ChangeNotifier {
   }
 
   initialiseVideoController(BuildContext context) async {
-    print("starting initialisation");
     await videoPlayerController.initialize();
-    print("video initialised");
     videoPlayerController.pause();
     customVideoPlayerController = CustomVideoPlayerController(
         context: context,
