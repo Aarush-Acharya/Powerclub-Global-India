@@ -28,7 +28,7 @@ class ResultsSection extends StatelessWidget {
           ),
           const SizedBox(height: 40),
           isDesktop
-              ? const Padding(
+              ? Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -41,6 +41,7 @@ class ResultsSection extends StatelessWidget {
                         tag: "Industry Tag",
                         content:
                             "This is Sample content its written in a way to test how this acts if the Text is Long and screen is short",
+                        isDesktop: isDesktop,
                       ), // Assuming BlogBox is a widget you've defined
                       SizedBox(width: 30),
                       BlogBox(
@@ -51,11 +52,12 @@ class ResultsSection extends StatelessWidget {
                         tag: "Industry Tag",
                         content:
                             "This is Sample content its written in a way to test how this acts if the Text is Long and screen is short",
+                        isDesktop: isDesktop,
                       ),
                     ],
                   ),
                 )
-              : const Column(
+              : Column(
                   children: [
                     BlogBox(
                       title: "Sample Title",
@@ -65,6 +67,7 @@ class ResultsSection extends StatelessWidget {
                       tag: "Industry Tag",
                       content:
                           "This is Sample content its written in a way to test how this acts if the Text is Long and screen is short",
+                      isDesktop: isDesktop,
                     ),
                     SizedBox(height: 16),
                     BlogBox(
@@ -75,6 +78,7 @@ class ResultsSection extends StatelessWidget {
                       tag: "Industry Tag",
                       content:
                           "This is Sample content its written in a way to test how this acts if the Text is Long and screen is short",
+                      isDesktop: isDesktop,
                     ),
                   ],
                 ),
