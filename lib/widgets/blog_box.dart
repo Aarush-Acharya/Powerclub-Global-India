@@ -41,7 +41,7 @@ class BlogBox extends StatelessWidget {
                     width: isDesktop
                         ? 0.4166666667 * MediaQuery.sizeOf(context).width
                         : 600,
-                    color: Colors.white,
+                    color: Colors.transparent,
                     child: Image.network(
                       image,
                       fit: BoxFit.contain,
