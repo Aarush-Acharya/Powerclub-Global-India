@@ -13,6 +13,7 @@ class BlogPage extends StatelessWidget {
   ) {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     ScrollController scrollController = ScrollController();
+    // bool isDesktop = MediaQuery.sizeOf(context).width < ;
     dynamic args = ModalRoute.of(context)!.settings.arguments!;
     String image = args!["image"];
     String title = args!["title"];
@@ -28,7 +29,7 @@ class BlogPage extends StatelessWidget {
       drawer: const CustomDrawer(),
       body: LayoutBuilder(
         builder: (context, constraints) {
-          bool isDesktop = MediaQuery.of(context).size.width > 1168;
+          bool isDesktop = MediaQuery.of(context).size.width > 786;
           return Column(
             children: [
               Expanded(
@@ -46,8 +47,11 @@ class BlogPage extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 150.0, vertical: 15),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: isDesktop
+                                  ? 0.2 * MediaQuery.sizeOf(context).width
+                                  : 20,
+                              vertical: 15),
                           child: Text(
                             title,
                             softWrap: true,
@@ -60,8 +64,10 @@ class BlogPage extends StatelessWidget {
                           height: 40,
                         ),
                         Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 150),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: isDesktop
+                                    ? 0.2 * MediaQuery.sizeOf(context).width
+                                    : 40),
                             child: MarkdownBody(data: content)),
                         const SizedBox(
                           height: 40,
