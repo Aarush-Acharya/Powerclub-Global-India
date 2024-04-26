@@ -3,6 +3,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:pcg/widgets/appbar.dart';
 import 'package:pcg/widgets/drawer.dart';
 import 'package:pcg/widgets/footer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BlogPage extends StatelessWidget {
   const BlogPage({super.key});
@@ -68,7 +69,13 @@ class BlogPage extends StatelessWidget {
                                 horizontal: isDesktop
                                     ? 0.2 * MediaQuery.sizeOf(context).width
                                     : 40),
-                            child: MarkdownBody(data: content)),
+                            child: MarkdownBody(
+                              selectable: true,
+                              data: content,
+                              onTapLink: (text, href, title) {
+                                launchUrl(Uri.parse(href!));
+                              },
+                            )),
                         const SizedBox(
                           height: 40,
                         ),
