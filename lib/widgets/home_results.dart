@@ -62,12 +62,12 @@ class ResultsSection extends StatelessWidget {
                         : Column(
                             children: [
                               BlogBox(
-                                title: blogNotifier.blogs[0].data["title"],
+                                title: blogNotifier.blogs[1].data["title"],
                                 description:
-                                    blogNotifier.blogs[0].data["description"],
-                                image: blogNotifier.blogs[0].data["thumbnail"],
-                                tag: blogNotifier.blogs[0].data["tag"],
-                                content: blogNotifier.blogs[0].data["content"],
+                                    blogNotifier.blogs[1].data["description"],
+                                image: blogNotifier.blogs[1].data["thumbnail"],
+                                tag: blogNotifier.blogs[1].data["tag"],
+                                content: blogNotifier.blogs[1].data["content"],
                                 isDesktop: isDesktop,
                               ), // Assuming BlogBox is a widget you've defined
                               // SizedBox(height: 30),
