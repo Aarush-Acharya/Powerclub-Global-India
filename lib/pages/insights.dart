@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pcg/widgets/home_insights.dart';
 import '../widgets/appbar.dart'; // Make sure the path is correct
 import '../widgets/footer.dart';
 import '../widgets/drawer.dart';
@@ -47,6 +48,10 @@ class InsightsPage extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    const InsightsSection(),
                   ],
                 ),
               ),
