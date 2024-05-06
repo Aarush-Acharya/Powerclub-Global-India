@@ -82,7 +82,7 @@ class ResultsSection extends StatelessWidget {
                               // ),
                             ],
                           )
-                    : Center(
+                    : const Center(
                         child: CircularProgressIndicator(),
                       );
               }),

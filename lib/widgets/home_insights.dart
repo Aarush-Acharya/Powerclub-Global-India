@@ -64,7 +64,7 @@ class InsightsSection extends StatelessWidget {
                                 content: blogNotifier.blogs[0].data["content"],
                                 isDesktop: isDesktop,
                               ), // Assuming BlogBox is a widget you've defined
-                              SizedBox(height: 30),
+                              const SizedBox(height: 30),
                               BlogBox(
                                 title: blogNotifier.blogs[2].data["title"],
                                 description:
@@ -76,7 +76,7 @@ class InsightsSection extends StatelessWidget {
                               ),
                             ],
                           )
-                    : Center(
+                    : const Center(
                         child: CircularProgressIndicator(),
                       );
               }),

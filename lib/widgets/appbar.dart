@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pcg/change_notifiers/video_notifier.dart';
 import 'package:pcg/theme/theme_manager.dart';
+
+
+
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;

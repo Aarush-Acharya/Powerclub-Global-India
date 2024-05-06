@@ -13,6 +13,7 @@ class BlogPage extends StatelessWidget {
     BuildContext context,
   ) {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+    bool isWideScreen = MediaQuery.of(context).size.width >= 800;
     ScrollController scrollController = ScrollController();
     // bool isDesktop = MediaQuery.sizeOf(context).width < ;
     dynamic args = ModalRoute.of(context)!.settings.arguments!;
@@ -39,7 +40,7 @@ class BlogPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
+                        SizedBox(
                           height: 400,
                           child: Image.network(
                             image,
@@ -79,10 +80,11 @@ class BlogPage extends StatelessWidget {
                         const SizedBox(
                           height: 40,
                         ),
+                        isWideScreen ? const SizedBox() : const Footer(),
                       ],
                     )),
               ),
-              const Footer(),
+              isWideScreen ? const Footer() : const SizedBox(),
             ],
           );
         },

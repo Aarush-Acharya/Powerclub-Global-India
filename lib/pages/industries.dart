@@ -72,6 +72,7 @@ class IndustriesPage extends StatelessWidget {
     final textColor = Theme.of(context).brightness == Brightness.dark
         ? Colors.white
         : Colors.black;
+    bool isWideScreen = MediaQuery.of(context).size.width >= 800;
 
     return Scaffold(
       key: _scaffoldKey,
@@ -141,15 +142,16 @@ class IndustriesPage extends StatelessWidget {
                             );
                           },
                         ),
-                        const SizedBox(height: 40),
+                        const SizedBox(height: 20),
                       ],
                     ),
-                  ), //
+                  ),
+                  isWideScreen ? const SizedBox() : const Footer()
                 ],
               ),
             ),
           ),
-          const Footer(),
+          isWideScreen ? const Footer() : const SizedBox()
         ],
       ),
     );

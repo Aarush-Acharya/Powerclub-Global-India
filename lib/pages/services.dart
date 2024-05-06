@@ -54,7 +54,7 @@ class ServicesPage extends StatelessWidget {
     final textColor = Theme.of(context).brightness == Brightness.dark
         ? Colors.white
         : Colors.black;
-
+    bool isWideScreen = MediaQuery.of(context).size.width >= 800;
     return Scaffold(
       key: _scaffoldKey,
       appBar: PreferredSize(
@@ -66,68 +66,74 @@ class ServicesPage extends StatelessWidget {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment:
-                      CrossAxisAlignment.center, // Align text center
-                  children: [
-                    Text(
-                      'Our Services',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium
-                          ?.copyWith(fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 16),
-                    Text(
-                      'We offer a wide range of services to help you achieve your goals:',
-                      style: Theme.of(context).textTheme.bodyLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 16),
-                    GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: isDesktop ? 3 : 1,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                        childAspectRatio: 3,
-                      ),
-                      itemCount: services.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          decoration: BoxDecoration(
-                            color:
-                                Theme.of(context).brightness == Brightness.dark
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment:
+                          CrossAxisAlignment.center, // Align text center
+                      children: [
+                        Text(
+                          'Our Services',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineMedium
+                              ?.copyWith(fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          'We offer a wide range of services to help you achieve your goals:',
+                          style: Theme.of(context).textTheme.bodyLarge,
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 16),
+                        GridView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: isDesktop ? 3 : 1,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
+                            childAspectRatio: 3,
+                          ),
+                          itemCount: services.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).brightness ==
+                                        Brightness.dark
                                     ? Colors.black
                                     : Colors.white,
-                            border: Border.all(color: themeColor),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: ListTile(
-                            leading: Icon(services[index]["icon"],
-                                color: themeColor),
-                            title: Text(services[index]["title"],
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: textColor)),
-                            subtitle: Text(services[index]["description"],
-                                style: TextStyle(color: textColor)),
-                          ),
-                        );
-                      },
+                                border: Border.all(color: themeColor),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: ListTile(
+                                leading: Icon(services[index]["icon"],
+                                    color: themeColor),
+                                title: Text(services[index]["title"],
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: textColor)),
+                                subtitle: Text(services[index]["description"],
+                                    style: TextStyle(color: textColor)),
+                              ),
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 20),
+                        // Place Footer here directly in the layout
+                      ],
                     ),
-                    const SizedBox(height: 40),
-                    // Place Footer here directly in the layout
-                  ],
-                ),
+                  ),
+                  isWideScreen ? const SizedBox() : const Footer()
+                ],
               ),
             ),
           ),
-          const Footer(),
+          isWideScreen ? const Footer() : const SizedBox()
         ],
       ),
     );
