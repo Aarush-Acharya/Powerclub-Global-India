@@ -86,21 +86,21 @@ class ResultsSection extends StatelessWidget {
                         child: CircularProgressIndicator(),
                       );
               }),
-          const SizedBox(height: 25),
-          ElevatedButton(
-            onPressed: () {
-              // Define what happens when the button is pressed
-              // For example, navigate to a page showing client results
-              Navigator.of(context)
-                  .pushNamed('/clientsResults'); // Adjust the route as needed
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor:
-                  const Color(0xFFB4914C), // Background color of the button
-              foregroundColor: Colors.white, // Text color of the button
-            ),
-            child: const Text('See our Clients Results'),
-          ),
+          // const SizedBox(height: 25),
+          // ElevatedButton(
+          //   onPressed: () {
+          //     // Define what happens when the button is pressed
+          //     // For example, navigate to a page showing client results
+          //     Navigator.of(context)
+          //         .pushNamed('/clientsResults'); // Adjust the route as needed
+          //   },
+          //   style: ElevatedButton.styleFrom(
+          //     backgroundColor:
+          //         const Color(0xFFB4914C), // Background color of the button
+          //     foregroundColor: Colors.white, // Text color of the button
+          //   ),
+          //   child: const Text('See our Clients Results'),
+          // ),
         ],
       ),
     );
