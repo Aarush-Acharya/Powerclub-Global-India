@@ -43,13 +43,13 @@ class InsightsSection extends StatelessWidget {
                                   width: 0.02083333333 *
                                       MediaQuery.sizeOf(context).width),
                               BlogBox(
-                                title: blogNotifier.blogs[0].data["title"],
+                                title: blogNotifier.blogs[2].data["title"],
                                 description:
-                                    blogNotifier.blogs[0].data["description"],
-                                image: blogNotifier.blogs[0].data["thumbnail"],
-                                tag: blogNotifier.blogs[0].data["tag"],
-                                content: blogNotifier.blogs[0].data["content"],
-                                                             isDesktop: isDesktop,
+                                    blogNotifier.blogs[2].data["description"],
+                                image: blogNotifier.blogs[2].data["thumbnail"],
+                                tag: blogNotifier.blogs[2].data["tag"],
+                                content: blogNotifier.blogs[2].data["content"],
+                                isDesktop: isDesktop,
                               ),
                             ],
                           )
@@ -62,18 +62,17 @@ class InsightsSection extends StatelessWidget {
                                 image: blogNotifier.blogs[0].data["thumbnail"],
                                 tag: blogNotifier.blogs[0].data["tag"],
                                 content: blogNotifier.blogs[0].data["content"],
-                                                             isDesktop: isDesktop,
+                                isDesktop: isDesktop,
                               ), // Assuming BlogBox is a widget you've defined
-                              SizedBox(
-                                  height: 30),
+                              SizedBox(height: 30),
                               BlogBox(
-                                title: blogNotifier.blogs[0].data["title"],
+                                title: blogNotifier.blogs[2].data["title"],
                                 description:
-                                    blogNotifier.blogs[0].data["description"],
-                                image: blogNotifier.blogs[0].data["thumbnail"],
-                                tag: blogNotifier.blogs[0].data["tag"],
-                                content: blogNotifier.blogs[0].data["content"],
-                                                             isDesktop: isDesktop,
+                                    blogNotifier.blogs[2].data["description"],
+                                image: blogNotifier.blogs[2].data["thumbnail"],
+                                tag: blogNotifier.blogs[2].data["tag"],
+                                content: blogNotifier.blogs[2].data["content"],
+                                isDesktop: isDesktop,
                               ),
                             ],
                           )
