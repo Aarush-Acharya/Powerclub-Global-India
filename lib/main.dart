@@ -11,6 +11,7 @@ import 'pages/insights.dart';
 import 'pages/about.dart';
 import 'pages/contact.dart';
 import 'pages/careers.dart';
+import 'pages/vsl.dart';
 import 'pages/bodhi.dart';
 
 void main() {
@@ -42,7 +43,8 @@ class MyApp extends StatelessWidget {
             '/contactUsPage': (context) => const ContactUsPage(),
             '/careersPage': (context) => CareersPage(),
             '/bodhiPage': (context) => const Bodhi(),
-            '/blogs': (context) => const BlogPage()
+            '/blogs': (context) => const BlogPage(),
+            '/vsl': (context) => const VslPage()
           },
         );
       },
