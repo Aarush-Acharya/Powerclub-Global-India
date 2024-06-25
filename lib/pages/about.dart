@@ -5,15 +5,112 @@ import '../widgets/footer.dart';
 
 class AboutUsPage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+    final List<Map<String, dynamic>> services = [
+    {
+      "title": "Branding",
+      "description": "Building your brand identity and strategy.",
+      "icon": Icons.brush,
+    },
+    {
+      "title": "Web Development",
+      "description":
+          "Custom websites and web applications tailored to your needs.",
+      "icon": Icons.web,
+    },
+    {
+      "title": "Social Media",
+      "description":
+          "Engaging your audience through powerful social media strategies.",
+      "icon": Icons.share,
+    },
+    {
+      "title": "Experiences",
+      "description": "Creating unforgettable experiences and events.",
+      "icon": Icons.event_available,
+    },
+    {
+      "title": "Marketing",
+      "description":
+          "Comprehensive marketing services to grow your visibility.",
+      "icon": Icons.trending_up,
+    },
+    {
+      "title": "Press",
+      "description": "Managing press relations and communications.",
+      "icon": Icons.record_voice_over,
+    },
+    // Add more services as needed
+  ];
+
 
   AboutUsPage({super.key});
+  final List<Map<String, dynamic>> industries = [
+    {
+      "title": "Energy",
+      "description":
+          "Innovative solutions for sustainable and renewable energy sources.",
+      "icon": Icons.flash_on,
+    },
+    {
+      "title": "Agriculture",
+      "description":
+          "Technologies and strategies for modern, sustainable agriculture.",
+      "icon": Icons.eco,
+    },
+    {
+      "title": "Development",
+      "description": "Comprehensive land development and urban planning.",
+      "icon": Icons.landscape,
+    },
+    {
+      "title": "Transportation",
+      "description":
+          "Efficient and sustainable transportation solutions for Air, Land, and Sea.",
+      "icon": Icons.directions_car,
+    },
+    {
+      "title": "Networking",
+      "description":
+          "Advanced networking solutions for ISPs and digital infrastructure.",
+      "icon": Icons.router,
+    },
+    {
+      "title": "Space",
+      "description":
+          "Pioneering the final frontier with innovative space technologies.",
+      "icon": Icons.rocket_launch,
+    },
+    {
+      "title": "Robotics",
+      "description":
+          "Cutting-edge robotics for automation, efficiency, and exploration.",
+      "icon": Icons.build,
+    },
+    {
+      "title": "Blockchain",
+      "description":
+          "Secure, decentralized technologies for transactions and contracts.",
+      "icon": Icons.account_balance_wallet,
+    },
+    {
+      "title": "Hardware",
+      "description": "The latest in computer and IoT device technologies.",
+      "icon": Icons.computer,
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
     bool isWideScreen = MediaQuery.of(context).size.width >= 800;
     ThemeData theme = Theme.of(context);
     bool isDarkMode = theme.brightness == Brightness.dark;
-
+    bool isDesktop = MediaQuery.of(context).size.width >= 800;
+        final themeColor = Theme.of(context).brightness == Brightness.dark
+        ? Colors.white
+        : const Color(0xFFB4914C);
+    final textColor = Theme.of(context).brightness == Brightness.dark
+        ? Colors.white
+        : Colors.black;
     return Scaffold(
       key: _scaffoldKey,
       appBar: PreferredSize(
@@ -295,31 +392,43 @@ class AboutUsPage extends StatelessWidget {
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(height: 20),
-                          Wrap(
-                            alignment: WrapAlignment.center,
-                            spacing: 10.0,
-                            runSpacing: 10.0,
-                            children: List.generate(10, (index) {
-                              return Chip(
-                                label: Text('Industry',
-                                    style: TextStyle(fontFamily: 'Cinzel')),
-                                backgroundColor: Colors.white,
-                                shape: StadiumBorder(
-                                  side: BorderSide(
-                                    color: isDarkMode
-                                        ? Colors.white
-                                        : Color(0xFFB4914C),
-                                    width: 1,
-                                  ),
+                          const SizedBox(height: 16),
+                          GridView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: isDesktop ? 3 : 1,
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 10,
+                              childAspectRatio: 3,
+                            ),
+                            itemCount: industries.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Container(
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? Colors.black
+                                      : Colors.white,
+                                  border: Border.all(color: themeColor),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
-                                labelStyle: TextStyle(
-                                  color: isDarkMode
-                                      ? Colors.white
-                                      : Color(0xFFB4914C),
+                                child: ListTile(
+                                  leading: Icon(industries[index]["icon"],
+                                      color: themeColor),
+                                  title: Text(industries[index]["title"],
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: textColor)),
+                                  subtitle: Text(
+                                      industries[index]["description"],
+                                      style: TextStyle(color: textColor)),
                                 ),
                               );
-                            }),
+                            },
                           ),
+                          const SizedBox(height: 20),
                           const SizedBox(height: 40),
                           const Text(
                             'Services',
@@ -331,31 +440,40 @@ class AboutUsPage extends StatelessWidget {
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(height: 20),
-                          Wrap(
-                            alignment: WrapAlignment.center,
-                            spacing: 10.0,
-                            runSpacing: 10.0,
-                            children: List.generate(6, (index) {
-                              return Chip(
-                                label: Text('Services',
-                                    style: TextStyle(fontFamily: 'Cinzel')),
-                                backgroundColor: Colors.white,
-                                shape: StadiumBorder(
-                                  side: BorderSide(
-                                    color: isDarkMode
-                                        ? Colors.white
-                                        : Color(0xFFB4914C),
-                                    width: 1,
-                                  ),
-                                ),
-                                labelStyle: TextStyle(
-                                  color: isDarkMode
-                                      ? Colors.white
-                                      : Color(0xFFB4914C),
-                                ),
-                              );
-                            }),
+                           GridView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: isDesktop ? 3 : 1,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
+                            childAspectRatio: 3,
                           ),
+                          itemCount: services.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).brightness ==
+                                        Brightness.dark
+                                    ? Colors.black
+                                    : Colors.white,
+                                border: Border.all(color: themeColor),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: ListTile(
+                                leading: Icon(services[index]["icon"],
+                                    color: themeColor),
+                                title: Text(services[index]["title"],
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: textColor)),
+                                subtitle: Text(services[index]["description"],
+                                    style: TextStyle(color: textColor)),
+                              ),
+                            );
+                          },
+                        ),
                         ],
                       ),
                     ),
